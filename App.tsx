@@ -1,5 +1,4 @@
 
-import { GoogleGenAI } from "@google/genai";
 import React, { useState, useEffect, useCallback } from 'react';
 import { BannerAd, ClassifiedAd } from './types';
 import { fetchPortalData } from './services/dataFetcher';

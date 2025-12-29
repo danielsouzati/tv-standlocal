@@ -13,7 +13,7 @@ function mapBubbleToClassified(item: any, tableName: string = "Classificado"): C
     foto = item.foto1 || item.foto || item.imagem || item.image || item.fotoPrincipal || "";
   }
 
-  const imageUrl = foto.startsWith && foto.startsWith('//')
+  const imageUrl = (typeof foto === 'string' && foto.startsWith('//'))
     ? `https:${foto}`
     : foto;
 

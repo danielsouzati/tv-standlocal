@@ -2,7 +2,7 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { ClassifiedAd } from "../types";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY || '' });
 
 export async function optimizeClassifiedsForTV(classifieds: ClassifiedAd[]): Promise<ClassifiedAd[]> {
   try {
@@ -34,7 +34,7 @@ export async function optimizeClassifiedsForTV(classifieds: ClassifiedAd[]): Pro
     });
 
     const highlights = JSON.parse(response.text);
-    
+
     return classifieds.map(c => {
       const h = highlights.find((item: any) => item.id === c.id);
       return { ...c, aiHighlight: h ? h.highlight : c.title };
