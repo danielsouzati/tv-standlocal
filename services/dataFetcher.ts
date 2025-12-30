@@ -170,6 +170,12 @@ export async function fetchPortalData(): Promise<{ banners: BannerAd[], classifi
                   return shouldInclude;
                 }
               })
+              // Ordena por data de criação (mais recente primeiro)
+              .sort((a: any, b: any) => {
+                const dateA = new Date(a["Created Date"] || a.Created || a.created_date || a.data_criacao || 0);
+                const dateB = new Date(b["Created Date"] || b.Created || b.created_date || b.data_criacao || 0);
+                return dateB.getTime() - dateA.getTime(); // Ordem decrescente (mais recente primeiro)
+              })
               .map((item: any) => mapBubbleToClassified(item, tableName));
 
             allClassifieds = allClassifieds.concat(tableClassifieds);
