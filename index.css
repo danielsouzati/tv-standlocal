@@ -1,0 +1,72 @@
+/* Otimizações específicas para TV e dispositivos móveis */
+
+/* Garantir que o conteúdo se ajuste corretamente em todas as telas */
+* {
+  box-sizing: border-box;
+}
+
+/* Otimizações para TVs de 32-43 polegadas */
+@media screen and (min-width: 1280px) and (max-width: 1920px) {
+  /* Ajustes específicos para TVs Full HD */
+  body {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  /* Ajustes para TVs 4K */
+  body {
+    font-size: 18px;
+  }
+}
+
+/* Otimizações para orientação vertical em TVs */
+@media screen and (orientation: portrait) and (min-height: 1080px) {
+  /* Aumentar espaçamento em modo vertical em telas grandes */
+  .main-content {
+    padding: 1rem;
+  }
+}
+
+/* Otimizações para dispositivos móveis */
+@media screen and (max-width: 640px) {
+  /* Reduzir espaçamentos em telas pequenas */
+  body {
+    font-size: 14px;
+  }
+}
+
+/* Otimizações para tablets */
+@media screen and (min-width: 641px) and (max-width: 1024px) {
+  body {
+    font-size: 15px;
+  }
+}
+
+/* Garantir que imagens não ultrapassem os limites */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Melhorar a renderização de texto em TVs */
+@media screen and (min-width: 1280px) {
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+/* Animações suaves para transições de orientação */
+.orientation-transition {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Garantir que o botão de orientação seja acessível em touch */
+@media (hover: none) and (pointer: coarse) {
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
